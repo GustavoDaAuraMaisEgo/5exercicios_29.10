@@ -44,4 +44,4 @@ while True:
         break
     else:
         
-        print("Opção inválida. Digite 's' para sim ou 'n' para não.")
+        print("Opção inválida.Por favor, Digite 's' para sim ou 'n' para não.")
