@@ -1,9 +1,9 @@
 import os
 os.system('cls')
 
-print('='*35)
+print('='*37)
 print("Bem vindo. Faça o Cadastro dos Alunos")
-print('='*35)
+print('='*37)
 
 cadastro = dict()
 
