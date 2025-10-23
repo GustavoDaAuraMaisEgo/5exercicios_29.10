@@ -2,32 +2,41 @@ import os
 os.system('cls')
 
 print('='*35)
-print("Bem vindo, Aluno. Faça seu Cadastro ",'')
+print("Bem vindo. Faça o Cadastro dos Alunos")
 print('='*35)
 
 cadastro=dict()
-cadastro['Nome']=str(input("Digite seu Nome: "))
-cadastro['N1']=float(input("Digite a Nota 1: "))
-cadastro['N2']=float(input("Digite a Nota 2: "))
-cadastro['N3']=float(input("Digite a Nota 3: "))
-media=(cadastro['N1']+cadastro['N2']+cadastro['N3'])/3
 
-print('='*60)
-if media>=7:
-    os.system('cls')
-    print(f"Aluno {cadastro['Nome']} aprovado com média {media:.2f}")
-else:
-    os.system('cls')
-    print(f"Aluno {cadastro['Nome']} reprovado com média {media:.2f}")
-print('')
-print("Gostaria de ver suas notas desse Bimestre?")
-resposta=str(input("Digite [S] para SIM ou [N] para NÃO: ")).upper().strip()
-if resposta=='S':
-    os.system('cls')
-    print(f"As notas do Aluno {cadastro['Nome']} são: ")
-    print(f"Nota 1: {cadastro['N1']}")
-    print(f"Nota 2: {cadastro['N2']}")
-    print(f"Nota 3: {cadastro['N3']}")
-    print(f"Média: {media:.2f}")
-else:
-    print("Obrigado por utilizar nosso sistema!")  
+for c in range(1,5):
+    print(f"----- {c}° Aluno -----")
+    nome=str(input("Nome: "))
+    nota1=float(input("Nota 1: "))
+    nota2=float(input("Nota 2: "))
+    nota3=float(input("Nota 3: "))
+    nota4=float(input("Nota 4: "))
+    media=(nota1 + nota2 + nota3 + nota4)/4
+    cadastro[nome] = media
+    print("-------------------")
+os.system('cls')
+print("----- Boletim dos Alunos -----")
+for k,v in cadastro.items():
+    print(f"O aluno {k} teve média {v:.1f}")
+print("------------------------------")
+
+while True:
+    consulta=str(input("Deseja consultar a média de algum aluno? (s/n): "))
+    if consulta == 's':
+        aluno=str(input("Digite o nome do aluno: "))
+        if aluno in cadastro and media >= 7.0:
+            print(f"A média do aluno {aluno} é {cadastro[aluno]:.1f} - Aprovado")
+        elif aluno in cadastro and media < 7.0:
+            print(f"A média do aluno {aluno} é {cadastro[aluno]:.1f} - Reprovado")
+        else:
+            print("Aluno não encontrado.")
+    elif consulta == 'n':
+        os.system('cls')
+        print("Encerrando o programa. Obrigado!")
+        break
+    else:
+        os.system('cls')
+        print("Opção inválida. Digite 's' para sim ou 'n' para não.")
