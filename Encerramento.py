@@ -1,12 +1,12 @@
 while True:
-    print("[1] para voltar ao menu principal")
-    print("[2] Sair")
+    print("escreva [menu] para voltar ao menu principal")
+    print("escreva [sair] para Sair")
 
-    opcao = input("Escolha uma opção: ")
+    opcao = input("Escolha uma opção: ").lower()
 
-    if opcao == '1':
+    if opcao == 'menu':
         print("Voltando ao menu")
-    elif opcao == '2':
+    elif opcao == 'sair':
         print("Encerrando o programa")
         break 
     else:
